@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware((to) => {
   if (import.meta.server) return;
 
   const authStore = useAuthStore();
-  authStore.initFromStorage();
+   authStore.initFromStorage();
   // Skip middleware for login page
   // Redirect to login if not authenticated
   if (!authStore.isAuthenticated) {
