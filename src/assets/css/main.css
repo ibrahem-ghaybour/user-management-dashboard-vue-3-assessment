@@ -1,0 +1,112 @@
+/* Main CSS file for the User Management Dashboard */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme (default) */
+    --primary-color: #4361ee;
+    --primary-light-color: #4895ef;
+    --primary-dark-color: #3f37c9;
+    --secondary-color: #3f37c9;
+    --text-color: #333;
+    --heading-color: #1f2937;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --border-color: #e9ecef;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #6c757d;
+    --danger-color: #e63946;
+    --success-color: #2a9d8f;
+    --warning-color: #f9c74f;
+  }
+
+  /* Dark theme */
+  .dark-theme {
+    --primary-color: #4cc9f0;
+    --primary-light-color: #7dd3fc;
+    --primary-dark-color: #0284c7;
+    --secondary-color: #4361ee;
+    --text-color: #f8f9fa;
+    --heading-color: #f1f5f9;
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --border-color: #2d2d2d;
+    --light-gray: #2d2d2d;
+    --medium-gray: #444444;
+    --dark-gray: #adb5bd;
+    --danger-color: #e63946;
+    --success-color: #2a9d8f;
+    --warning-color: #f9c74f;
+  }
+
+  body {
+    @apply font-sans text-text bg-background transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-text-heading font-semibold;
+  }
+
+  a {
+    @apply text-primary hover:text-primary-dark transition-colors duration-200;
+  }
+
+  /* Focus styles for accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  .card {
+    @apply bg-background-card rounded-lg shadow border border-border p-6 mb-6;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-opacity-90 focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-opacity-90 focus:ring-secondary;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-white hover:bg-opacity-90 focus:ring-danger;
+  }
+
+  .btn-success {
+    @apply bg-success text-white hover:bg-opacity-90 focus:ring-success;
+  }
+
+  .form-control {
+    @apply w-full bg-background-card border border-border rounded-md px-3 py-2 text-text focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200;
+  }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-text mb-1;
+  }
+
+  .error-message {
+    @apply text-danger text-sm mt-1;
+  }
+
+  /* Skip to content link for accessibility */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white;
+  }
+}
