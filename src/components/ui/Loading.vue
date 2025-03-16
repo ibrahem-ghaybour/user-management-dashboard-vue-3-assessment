@@ -1,16 +1,45 @@
+<style scoped>
+  .spinner-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 30px auto;
+    overflow: hidden;
+  }
+
+  .spinner {
+    position: absolute;
+    width: calc(100% - 9.9px);
+    height: calc(100% - 9.9px);
+    border: 5px solid transparent;
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.79) infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
 <template>
-  <div class="animate-pulse flex flex-col items-center gap-4 w-full">
-    <div>
-      <div class=" h-6 bg-slate-400 rounded-md"></div>
-      <div class="h-4 bg-slate-400 mx-auto mt-3 rounded-md"></div>
+  <div class="spinner-container">
+    <div class="spinner">
+     <div class="spinner">
+      <div class="spinner">
+        <div class="spinner">
+          <div class="spinner">
+              <div class="spinner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="h-7  bg-slate-400 w-full rounded-md"></div>
-    <div class="h-7 bg-slate-400 w-[80%] rounded-md"></div>
-    <div class="h-7 bg-slate-400 w-full rounded-md"></div>
-    <div class="h-7 bg-slate-400 w-1/2 rounded-md"></div>
   </div>
 </template>
-
-<script setup lang="ts"></script>
-
-<style scoped></style>

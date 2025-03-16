@@ -1,6 +1,6 @@
 <template>
   <div class="pb-5" v-if="isAuthenticated">
-    <div class="page-header">
+    <div class="flex justify-between items-center mb-8">
       <h2>{{ $t("users.title") }}</h2>
       <button
         class="btn btn-primary"
@@ -11,16 +11,16 @@
       </button>
     </div>
 
-    <div v-if="usersStore.error" class="error-message">
+    <div v-if="usersStore.error" class="bg-red-500 text-white p-3 rounded mb-4">
       {{ usersStore.error }}
     </div>
 
-    <div class="search-filter-container">
+    <div class="flex flex-wrap gap-4 mb-6">
       <SearchBar @search="handleSearch" />
       <FilterControls @filter="handleFilter" />
     </div>
 
-    <div v-if="usersStore.isLoading" class="loading-indicator h-[80dvh]">
+    <div v-if="usersStore.isLoading" class="flex items-center justify-center h-[80vh]">
       <UiLoading />
     </div>
 
@@ -35,19 +35,19 @@
       @delete="handleDeleteUser"
     />
 
-    <div class="pagination" v-if="usersStore.totalPages > 1">
-      <div class="page-numbers">
+    <div class="pagination flex flex-col items-center mt-6 space-y-4" v-if="usersStore.totalPages > 1">
+      <div class="flex space-x-2">
         <button
           v-for="page in usersStore.totalPages"
           :key="page"
           class="btn btn-secondary"
-          :class="{ active: page === usersStore.currentPage }"
+          :class="{ 'bg-blue-500 text-white': page === usersStore.currentPage }"
           @click="handlePageChange(page)"
         >
           {{ page }}
         </button>
       </div>
-      <div class="pagination-controls">
+      <div class="flex items-center space-x-4">
         <button
           class="btn btn-secondary"
           :disabled="!usersStore.hasPreviousPage"
@@ -149,97 +149,27 @@ function createNewUser() {
 </script>
 
 <style scoped>
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.search-filter-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
 .btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  cursor: pointer;
+  @apply inline-block px-4 py-2 rounded text-center font-medium cursor-pointer;
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
+  @apply bg-blue-500 text-white border-none;
 }
 
 .btn-primary:hover {
-  background-color: var(--secondary-color);
+  @apply bg-blue-600;
 }
 
 .btn-secondary {
-  background-color: var(--medium-gray);
-  color: var(--text-color);
-  border: none;
+  @apply bg-gray-300 text-gray-700 border-none;
 }
 
 .btn-secondary:hover {
-  background-color: var(--dark-gray);
-  color: white;
+  @apply bg-gray-400 text-white;
 }
 
 .btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.pagination {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1.5rem;
-  gap: 1rem;
-}
-
-.pagination-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.page-numbers {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.page-numbers .btn {
-  min-width: 2rem;
-  text-align: center;
-}
-
-.page-numbers .btn.active {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.error-message {
-  background-color: var(--danger-color);
-  color: white;
-  padding: 0.75rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-.loading-indicator {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  color: var(--text-color);
+  @apply opacity-50 cursor-not-allowed;
 }
 </style>
