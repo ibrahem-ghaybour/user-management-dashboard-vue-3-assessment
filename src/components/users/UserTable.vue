@@ -1,42 +1,59 @@
 <template>
   <div class="user-table-container p-2">
     <table class="user-table">
-      <thead>
+      <thead class="">
         <tr>
-          <th @click="sortBy('firstName')">
+          <th
+            @click="sortBy('firstName')"
+            class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+          >
             {{ $t("users.fullName") }}
             <span v-if="sortField === 'firstName'" class="sort-indicator">
               {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
-          <th @click="sortBy('email')">
+          <th
+            @click="sortBy('email')"
+            class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+          >
             {{ $t("users.email") }}
             <span v-if="sortField === 'email'" class="sort-indicator">
               {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
-          <th @click="sortBy('role')">
+          <th
+            @click="sortBy('role')"
+            class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+          >
             {{ $t("users.role") }}
             <span v-if="sortField === 'role'" class="sort-indicator">
               {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
-          <th @click="sortBy('status')">
+          <th
+            @click="sortBy('status')"
+            class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+          >
             {{ $t("users.status") }}
             <span v-if="sortField === 'status'" class="sort-indicator">
               {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
-          <th @click="sortBy('createdAt')">
+          <th
+            @click="sortBy('createdAt')"
+            class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer"
+          >
             {{ $t("users.createdAt") }}
             <span v-if="sortField === 'createdAt'" class="sort-indicator">
               {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
-          <th>{{ $t("common.actions") }}</th>
+          <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider !cursor-default">
+            {{ $t("common.actions") }}
+          </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class=" p-2">
         <tr v-for="user in users" :key="user.id">
           <td :data-label="$t('users.fullName')">
             {{ `${user.firstName} ${user.lastName}` }}
@@ -181,8 +198,7 @@ function sortBy(field: string) {
 }
 
 .user-table th:hover {
-  background-color: var(--dark-gray);
-  color: white;
+ opacity: 0.8;
 }
 
 .sort-indicator {
