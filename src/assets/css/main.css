@@ -22,7 +22,7 @@
     --medium-gray: #BDC3C7;            /* Warm Gray */
     --dark-gray: #7F8C8D;              /* Urban Slate */
     
-    --danger-color: #E74C3C;           /* Striking Red Coral */
+    --danger-color: #f86454f0;           /* Striking Red Coral */
     --success-color: #27AE60;          /* Vibrant Emerald Green */
     --warning-color: #F39C12;          /* Golden Amber */
 }
@@ -46,7 +46,7 @@
     --medium-gray: #4E4F50;            /* Refined Graphite */
     --dark-gray: #626567;              /* Smoky Gray */
     
-    --danger-color: #FF6B6B;           /* Vibrant Crimson */
+    --danger-color: #f97777eb;           /* Vibrant Crimson */
     --success-color: #2ECC71;          /* Radiant Green */
     --warning-color: #FFB74D;          /* Soft Sunset Orange */
 }

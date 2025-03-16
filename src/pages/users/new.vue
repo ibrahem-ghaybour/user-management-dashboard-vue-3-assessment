@@ -14,7 +14,7 @@
     </div>
 
     <div v-if="isLoading" class="loading-indicator">
-      <p>{{ $t("common.loading") }}</p>
+      <UiLoading />
     </div>
 
     <template v-else>
