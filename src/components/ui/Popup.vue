@@ -10,7 +10,7 @@
           <div
             v-if="isOpen"
             :class="[
-              `bg-background ov p-8 rounded-xl relative overflow-y-auto shadow-lg ${
+              `bg-background p-8 rounded-xl relative overflow-y-auto shadow-lg ${
                 parentClass ? '' : 'max-w-[90%] max-h-[90vh]'
               }`,
               parentClass,

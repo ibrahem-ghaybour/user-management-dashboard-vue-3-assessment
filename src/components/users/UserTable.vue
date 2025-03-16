@@ -70,7 +70,7 @@
       </tbody>
     </table>
   </div>
-  <UiPopup v-model:isOpen="showPopup" parentClass="max-w-md">
+  <UiPopup v-model:isOpen="showPopup"  :parentClass="'lg:!w-[300px] w-[70%] '">
     <div class="text-center">
       <h3 class="text-lg font-semibold mb-4">{{ popupMessage }}</h3>
       <button class="btn btn-primary" @click="handlePopupOk">OK</button>

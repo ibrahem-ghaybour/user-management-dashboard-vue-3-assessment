@@ -1,30 +1,36 @@
 <template>
   <div class="unauthorized-container">
     <div class="unauthorized-card">
-      <h1>Unauthorized Access</h1>
-      
+      <h1 class="!text-[--text-color]">Unauthorized Access</h1>
+
       <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
-          <path fill="none" d="M0 0h24v24H0z"/>
-          <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z" fill="#f56c6c"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="64"
+          height="64"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z"
+            fill="#f56c6c"
+          />
         </svg>
       </div>
-      
-      <p class="message">
-        You don't have permission to access this page.
-      </p>
-      
+
+      <p class="message">You don't have permission to access this page.</p>
+
       <div class="actions">
         <button @click="goBack" class="back-button">Go Back</button>
-        <button @click="goToDashboard" class="dashboard-button">Go to Dashboard</button>
+        <button @click="goToDashboard" class="dashboard-button">
+          Go to Dashboard
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from '#app';
-
 const router = useRouter();
 
 const goBack = () => {
@@ -32,7 +38,7 @@ const goBack = () => {
 };
 
 const goToDashboard = () => {
-  router.push('/');
+  router.push("/");
 };
 </script>
 
@@ -42,14 +48,14 @@ const goToDashboard = () => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f5f7fa;
 }
 
 .unauthorized-card {
   width: 100%;
   max-width: 500px;
   padding: 2rem;
-  background-color: white;
+  background-color: var(--light-gray);
+  color: var(--text-color) !important;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -77,7 +83,8 @@ h1 {
   gap: 1rem;
 }
 
-.back-button, .dashboard-button {
+.back-button,
+.dashboard-button {
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-size: 1rem;
@@ -92,16 +99,16 @@ h1 {
 }
 
 .back-button:hover {
-  background-color: #e6e8eb;
+  background-color: var(--light-gray);
 }
 
 .dashboard-button {
-  background-color: #409eff;
+  background-color: var(--primary-color);
   color: white;
   border: none;
 }
 
 .dashboard-button:hover {
-  background-color: #66b1ff;
+  opacity: 0.8;
 }
-</style> 
+</style>

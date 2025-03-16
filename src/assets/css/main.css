@@ -22,7 +22,7 @@
     --medium-gray: #b2bec3;            /* Mid Gray */
     --dark-gray: #636e72;              /* Dark Gray */
     
-    --danger-color: #d63031;           /* Vibrant Red */
+    --danger-color: #d63030af;           /* Vibrant Red */
     --success-color: #00b894;          /* Mint Green */
     --warning-color: #fdcb6e;           /* Yellow */
   }
@@ -43,7 +43,7 @@
     --light-gray: #2b2b2b;             /* Dark gray */
     --medium-gray: #444444;            /* Medium dark gray */
     --dark-gray: #666666;              /* Lighter dark gray */
-    --danger-color: #e63946;           /* Same soft red */
+    --danger-color: #e639478e;           /* Same soft red */
     --success-color: #52b788;          /* Same soft green */
     --warning-color: #ffbe0b;          /* Same soft amber */
   }

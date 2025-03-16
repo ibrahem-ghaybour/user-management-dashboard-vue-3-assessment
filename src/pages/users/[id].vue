@@ -8,7 +8,7 @@
         </button>
         <button
           class="btn btn-danger"
-          @click="confirmDelete"
+          @click="showPopup = true"
           v-role:disable="'users:delete'"
         >
           {{ $t("common.delete") }}
@@ -35,6 +35,14 @@
       />
     </template>
   </div>
+  <UiPopup v-model:isOpen="showPopup" parentClass="max-lg:min-w-[80%]">
+    <div class="text-center">
+      <h3 class="text-lg font-semibold mb-4">
+        {{ $t("users.deleteConfirm") }}
+      </h3>
+      <button class="btn btn-primary" @click="confirmDelete">OK</button>
+    </div></UiPopup
+  >
 </template>
 
 <script setup lang="ts">
@@ -49,6 +57,9 @@ const router = useRouter();
 const usersStore = useUsersStore();
 const rolesStore = useRolesStore();
 const { $i18n } = useNuxtApp();
+
+const showPopup = ref(false);
+const popupMessage = ref("");
 
 const userId = computed(() => route.params.id as string);
 
@@ -125,18 +136,19 @@ async function saveUser(userData: UpdateUserRequest) {
 
 // Delete user
 async function confirmDelete() {
-  if (confirm($i18n.t("users.deleteConfirm"))) {
+  if (user.value) {
     isLoading.value = true;
     error.value = null;
-
     try {
       await usersStore.deleteUser(userId.value);
+      showPopup.value = false;
       router.push("/users");
     } catch (err: any) {
       error.value = err.message || $i18n.t("users.errorDeleting");
       console.error("Error deleting user:", err);
     } finally {
       isLoading.value = false;
+      showPopup.value = false;
     }
   }
 }
