@@ -36,27 +36,40 @@
     />
 
     <div class="pagination" v-if="usersStore.totalPages > 1">
-      <button
-        class="btn btn-secondary"
-        :disabled="!usersStore.hasPreviousPage"
-        @click="usersStore.previousPage()"
-      >
-        {{ $t("common.back") }}
-      </button>
-      <span>{{
-        $t("pagination.showing", {
-          from: (usersStore.currentPage - 1) * 10 + 1,
-          to: Math.min(usersStore.currentPage * 10, usersStore.totalUsers),
-          total: usersStore.totalUsers,
-        })
-      }}</span>
-      <button
-        class="btn btn-secondary"
-        :disabled="!usersStore.hasNextPage"
-        @click="usersStore.nextPage()"
-      >
-        {{ $t("common.next") }}
-      </button>
+      <div class="page-numbers">
+        <button
+          v-for="page in usersStore.totalPages"
+          :key="page"
+          class="btn btn-secondary"
+          :class="{ active: page === usersStore.currentPage }"
+          @click="handlePageChange(page)"
+        >
+          {{ page }}
+        </button>
+      </div>
+      <div class="pagination-controls">
+        <button
+          class="btn btn-secondary"
+          :disabled="!usersStore.hasPreviousPage"
+          @click="usersStore.previousPage()"
+        >
+          {{ $t("common.back") }}
+        </button>
+        <span>{{
+          $t("pagination.showing", {
+            from: (usersStore.currentPage - 1) * 10 + 1,
+            to: Math.min(usersStore.currentPage * 10, usersStore.totalUsers),
+            total: usersStore.totalUsers,
+          })
+        }}</span>
+        <button
+          class="btn btn-secondary"
+          :disabled="!usersStore.hasNextPage"
+          @click="usersStore.nextPage()"
+        >
+          {{ $t("common.next") }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -187,9 +200,32 @@ function createNewUser() {
 
 .pagination {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page-numbers .btn {
+  min-width: 2rem;
+  text-align: center;
+}
+
+.page-numbers .btn.active {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .error-message {
