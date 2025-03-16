@@ -5,42 +5,49 @@
 
 @layer base {
   :root {
-    /* Light theme (default) */
-    --primary-color: #4361ee;
-    --primary-light-color: #4895ef;
-    --primary-dark-color: #3f37c9;
-    --secondary-color: #3f37c9;
-    --text-color: #333;
-    --heading-color: #1f2937;
-    --background-color: #f8f9fa;
-    --card-background: #ffffff;
-    --border-color: #e9ecef;
-    --light-gray: #f8f9fa;
-    --medium-gray: #e9ecef;
-    --dark-gray: #6c757d;
-    --danger-color: #e63946;
-    --success-color: #2a9d8f;
-    --warning-color: #f9c74f;
+    --primary-color: #00b894;          /* Mint Green */
+    --primary-light-color: #55efc4;    /* Soft Mint */
+    --primary-dark-color: #00997a;     /* Deep Mint */
+    
+    --secondary-color: #0984e3;        /* Cool Blue */
+    
+    --text-color: #2d3436;             /* Charcoal Black */
+    --heading-color: #1e272e;          /* Dark Slate */
+    
+    --background-color: #f1f2f6;       /* Mist Gray */
+    --card-background: #ffffff;        /* Pure White */
+    --border-color: #dcdde1;           /* Soft Gray Border */
+    
+    --light-gray: #dfe6e9;             /* Pale Gray */
+    --medium-gray: #b2bec3;            /* Mid Gray */
+    --dark-gray: #636e72;              /* Dark Gray */
+    
+    --danger-color: #d63031;           /* Vibrant Red */
+    --success-color: #00b894;          /* Mint Green */
+    --warning-color: #fdcb6e;           /* Yellow */
   }
+  
+  
 
   /* Dark theme */
   .dark-theme {
-    --primary-color: #4cc9f0;
-    --primary-light-color: #7dd3fc;
-    --primary-dark-color: #0284c7;
-    --secondary-color: #4361ee;
-    --text-color: #f8f9fa;
-    --heading-color: #f1f5f9;
-    --background-color: #121212;
-    --card-background: #1e1e1e;
-    --border-color: #2d2d2d;
-    --light-gray: #2d2d2d;
-    --medium-gray: #444444;
-    --dark-gray: #adb5bd;
-    --danger-color: #e63946;
-    --success-color: #2a9d8f;
-    --warning-color: #f9c74f;
+    --primary-color: #3a86ff;          /* Same soft blue for continuity */
+    --primary-light-color: #6ea8fe;    /* Lighter version */
+    --primary-dark-color: #265df2;     /* Darker version */
+    --secondary-color: #a8b0b9;        /* Soft gray-blue */
+    --text-color: #e0e0e0;             /* Light text */
+    --heading-color: #ffffff;          /* Brighter text for headings */
+    --background-color: #1a1a1a;       /* Near-black but soft */
+    --card-background: #212121;        /* Dark gray */
+    --border-color: #333333;           /* Darker border */
+    --light-gray: #2b2b2b;             /* Dark gray */
+    --medium-gray: #444444;            /* Medium dark gray */
+    --dark-gray: #666666;              /* Lighter dark gray */
+    --danger-color: #e63946;           /* Same soft red */
+    --success-color: #52b788;          /* Same soft green */
+    --warning-color: #ffbe0b;          /* Same soft amber */
   }
+  
 
   body {
     @apply font-sans text-text bg-background transition-colors duration-300;

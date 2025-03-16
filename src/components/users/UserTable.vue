@@ -4,36 +4,36 @@
       <thead>
         <tr>
           <th @click="sortBy('firstName')">
-            {{ $t('users.fullName') }}
+            {{ $t("users.fullName") }}
             <span v-if="sortField === 'firstName'" class="sort-indicator">
-              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
           <th @click="sortBy('email')">
-            {{ $t('users.email') }}
+            {{ $t("users.email") }}
             <span v-if="sortField === 'email'" class="sort-indicator">
-              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
           <th @click="sortBy('role')">
-            {{ $t('users.role') }}
+            {{ $t("users.role") }}
             <span v-if="sortField === 'role'" class="sort-indicator">
-              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
           <th @click="sortBy('status')">
-            {{ $t('users.status') }}
+            {{ $t("users.status") }}
             <span v-if="sortField === 'status'" class="sort-indicator">
-              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
           <th @click="sortBy('createdAt')">
-            {{ $t('users.createdAt') }}
+            {{ $t("users.createdAt") }}
             <span v-if="sortField === 'createdAt'" class="sort-indicator">
-              {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              {{ sortDirection === "asc" ? "↑" : "↓" }}
             </span>
           </th>
-          <th>{{ $t('common.actions') }}</th>
+          <th>{{ $t("common.actions") }}</th>
         </tr>
       </thead>
       <tbody>
@@ -65,26 +65,33 @@
           </td>
         </tr>
         <tr v-if="users.length === 0">
-          <td colspan="6" class="no-data">{{ $t('common.noData') }}</td>
+          <td colspan="6" class="no-data">{{ $t("common.noData") }}</td>
         </tr>
       </tbody>
     </table>
   </div>
+  <UiPopup v-model:isOpen="showPopup" parentClass="max-w-md">
+    <div class="text-center">
+      <h3 class="text-lg font-semibold mb-4">{{ popupMessage }}</h3>
+      <button class="btn btn-primary" @click="handlePopupOk">OK</button>
+    </div>
+  </UiPopup>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useRolesStore } from '~/store/roles';
-import { useLocalization } from '~/composables/useLocalization';
-import { useI18n } from 'vue-i18n';
-import UserActions from './UserActions.vue';
-import type { User } from '~/types/user';
+import { useRolesStore } from "~/store/roles";
+import { useLocalization } from "~/composables/useLocalization";
+import UserActions from "./UserActions.vue";
+import type { User } from "~/types/user";
 
 const router = useRouter();
 const rolesStore = useRolesStore();
 const { formatDate } = useLocalization();
-const { t } = useI18n();
+const { $i18n } = useNuxtApp();
+// Popup state
+const showPopup = ref(false);
+const popupMessage = ref("");
+const userToDelete = ref<User | null>(null);
 
 // Props
 const props = defineProps<{
@@ -96,14 +103,14 @@ const props = defineProps<{
 
 // Emits
 const emit = defineEmits<{
-  (e: 'page-change', page: number): void;
-  (e: 'sort', field: string, direction: 'asc' | 'desc'): void;
-  (e: 'delete', userId: string): void;
+  (e: "page-change", page: number): void;
+  (e: "sort", field: string, direction: "asc" | "desc"): void;
+  (e: "delete", userId: string): void;
 }>();
 
 // Sorting state
-const sortField = ref<string>('createdAt');
-const sortDirection = ref<'asc' | 'desc'>('desc');
+const sortField = ref<string>("createdAt");
+const sortDirection = ref<"asc" | "desc">("desc");
 
 // Get role name from role ID
 function getRoleName(roleId: string): string {
@@ -120,21 +127,29 @@ function editUser(user: User) {
 }
 
 function confirmDelete(user: User) {
-  if (confirm(t('users.deleteConfirm'))) {
-    emit('delete', user.id);
+  popupMessage.value = $i18n.t("audit.userDeleted");
+  userToDelete.value = user;
+  showPopup.value = true;
+}
+
+function handlePopupOk() {
+  if (userToDelete.value) {
+    emit("delete", userToDelete.value.id);
+    userToDelete.value = null;
   }
+  showPopup.value = false;
 }
 
 // Sorting function
 function sortBy(field: string) {
   if (sortField.value === field) {
-    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc';
+    sortDirection.value = sortDirection.value === "asc" ? "desc" : "asc";
   } else {
     sortField.value = field;
-    sortDirection.value = 'asc';
+    sortDirection.value = "asc";
   }
 
-  emit('sort', sortField.value, sortDirection.value);
+  emit("sort", sortField.value, sortDirection.value);
 }
 </script>
 

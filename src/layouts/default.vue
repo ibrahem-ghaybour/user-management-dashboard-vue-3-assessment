@@ -2,7 +2,7 @@
   <div class="flex flex-col min-h-screen bg-background text-text">
     <UiHeader />
     <main id="main-content" class="flex-1 pt-24">
-      <div class="container">
+      <div class="container max-lg:!pt-24">
         <slot></slot>
       </div>
     </main>

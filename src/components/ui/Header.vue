@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed-header bg-background-card border-b border-border shadow-sm py-2 md:py-4 w-full z-50"
+    class="fixed-header bg-background-card border-b border-border shadow-sm py-2 md:py-4 w-full !z-40"
   >
     <div class="container px-4 mx-auto">
       <div
@@ -47,7 +47,7 @@ import ThemeToggle from "~/components/ui/ThemeToggle.vue";
 import LanguageSelector from "~/components/ui/LanguageSelector.vue";
 const router = useRouter();
 const authStore = useAuthStore();
-const { init } = useThemeStore();
+// const { init } = useThemeStore();
 
 async function logout() {
   authStore.logout();
@@ -61,7 +61,6 @@ async function logout() {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
 }
 
 .app-header {

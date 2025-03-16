@@ -20,56 +20,23 @@
       <FilterControls @filter="handleFilter" />
     </div>
 
-    <div v-if="usersStore.isLoading" class="flex items-center justify-center h-[80vh]">
+    <div
+      v-if="usersStore.isLoading"
+      class="flex items-center justify-center h-[80vh]"
+    >
       <UiLoading />
     </div>
-
-    <UserTable
-      v-else
-      :users="usersStore.users"
-      :total-items="usersStore.totalUsers"
-      :current-page="usersStore.currentPage"
-      :total-pages="usersStore.totalPages"
-      @page-change="handlePageChange"
-      @sort="handleSort"
-      @delete="handleDeleteUser"
-    />
-
-    <div class="pagination flex flex-col items-center mt-6 space-y-4" v-if="usersStore.totalPages > 1">
-      <div class="flex space-x-2">
-        <button
-          v-for="page in usersStore.totalPages"
-          :key="page"
-          class="btn btn-secondary"
-          :class="{ 'bg-blue-500 text-white': page === usersStore.currentPage }"
-          @click="handlePageChange(page)"
-        >
-          {{ page }}
-        </button>
-      </div>
-      <div class="flex items-center space-x-4">
-        <button
-          class="btn btn-secondary"
-          :disabled="!usersStore.hasPreviousPage"
-          @click="usersStore.previousPage()"
-        >
-          {{ $t("common.back") }}
-        </button>
-        <span>{{
-          $t("pagination.showing", {
-            from: (usersStore.currentPage - 1) * 10 + 1,
-            to: Math.min(usersStore.currentPage * 10, usersStore.totalUsers),
-            total: usersStore.totalUsers,
-          })
-        }}</span>
-        <button
-          class="btn btn-secondary"
-          :disabled="!usersStore.hasNextPage"
-          @click="usersStore.nextPage()"
-        >
-          {{ $t("common.next") }}
-        </button>
-      </div>
+    <div v-else>
+      <UserTable
+        :users="usersStore.users"
+        :total-items="usersStore.totalUsers"
+        :current-page="usersStore.currentPage"
+        :total-pages="usersStore.totalPages"
+        @page-change="handlePageChange"
+        @sort="handleSort"
+        @delete="handleDeleteUser"
+      />
+      <UsersPagination />
     </div>
   </div>
 </template>
@@ -88,6 +55,7 @@ const usersStore = useUsersStore();
 const rolesStore = useRolesStore();
 const { $i18n } = useNuxtApp();
 const isDeleting = ref(false);
+
 
 // Load initial data
 onMounted(async () => {
@@ -133,10 +101,10 @@ async function handleDeleteUser(userId: string) {
     await usersStore.deleteUser(userId);
     // Refresh the user list after deletion
     await usersStore.fetchUsers();
-    alert($i18n.t("users.userDeleted"));
+    // alert($i18n.t("users.userDeleted"));
   } catch (error) {
     console.error("Failed to delete user:", error);
-    alert($i18n.t("users.errorDeleting"));
+    // alert($i18n.t("users.errorDeleting"));
   } finally {
     isDeleting.value = false;
   }
@@ -148,28 +116,4 @@ function createNewUser() {
 }
 </script>
 
-<style scoped>
-.btn {
-  @apply inline-block px-4 py-2 rounded text-center font-medium cursor-pointer;
-}
-
-.btn-primary {
-  @apply bg-blue-500 text-white border-none;
-}
-
-.btn-primary:hover {
-  @apply bg-blue-600;
-}
-
-.btn-secondary {
-  @apply bg-gray-300 text-gray-700 border-none;
-}
-
-.btn-secondary:hover {
-  @apply bg-gray-400 text-white;
-}
-
-.btn:disabled {
-  @apply opacity-50 cursor-not-allowed;
-}
-</style>
+<style scoped></style>
