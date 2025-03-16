@@ -5,48 +5,52 @@
 
 @layer base {
   :root {
-    --primary-color: #00b894;          /* Mint Green */
-    --primary-light-color: #55efc4;    /* Soft Mint */
-    --primary-dark-color: #00997a;     /* Deep Mint */
+    --primary-color: #16A085;          /* Elegant Jade Green */
+    --primary-light-color: #1ABC9C;    /* Soft Turquoise */
+    --primary-dark-color: #0E7C67;     /* Deep Teal */
     
-    --secondary-color: #0984e3;        /* Cool Blue */
+    --secondary-color: #2980B9;        /* Royal Blue */
     
-    --text-color: #2d3436;             /* Charcoal Black */
-    --heading-color: #1e272e;          /* Dark Slate */
+    --text-color: #2C3E50;             /* Rich Midnight Blue */
+    --heading-color: #1A252F;          /* Charcoal Navy */
     
-    --background-color: #f1f2f6;       /* Mist Gray */
-    --card-background: #ffffff;        /* Pure White */
-    --border-color: #dcdde1;           /* Soft Gray Border */
+    --background-color: #F8F9FA;       /* Soft Cloud White */
+    --card-background: #FFFFFF;        /* Crisp White */
+    --border-color: #DADFE1;           /* Gentle Gray Border */
     
-    --light-gray: #dfe6e9;             /* Pale Gray */
-    --medium-gray: #b2bec3;            /* Mid Gray */
-    --dark-gray: #636e72;              /* Dark Gray */
+    --light-gray: #ECF0F1;             /* Silky Silver */
+    --medium-gray: #BDC3C7;            /* Warm Gray */
+    --dark-gray: #7F8C8D;              /* Urban Slate */
     
-    --danger-color: #d63030af;           /* Vibrant Red */
-    --success-color: #00b894;          /* Mint Green */
-    --warning-color: #fdcb6e;           /* Yellow */
-  }
+    --danger-color: #E74C3C;           /* Striking Red Coral */
+    --success-color: #27AE60;          /* Vibrant Emerald Green */
+    --warning-color: #F39C12;          /* Golden Amber */
+}
   
-  
+/* Dark theme */
+.dark-theme {
+    --primary-color: #0D6EFD;          /* Bold Royal Blue */
+    --primary-light-color: #5B9BFF;    /* Soft Azure */
+    --primary-dark-color: #0546A0;     /* Deep Sapphire */
+    
+    --secondary-color: #8E44AD;        /* Majestic Purple */
+    
+    --text-color: #ECF0F1;             /* Soft White */
+    --heading-color: #FFFFFF;          /* Bright Pure White */
+    
+    --background-color: #18191A;       /* Rich Jet Black */
+    --card-background: #212529;        /* Graphite Black */
+    --border-color: #2C2F33;           /* Subtle Dark Gray */
+    
+    --light-gray: #3A3B3C;             /* Muted Charcoal */
+    --medium-gray: #4E4F50;            /* Refined Graphite */
+    --dark-gray: #626567;              /* Smoky Gray */
+    
+    --danger-color: #FF6B6B;           /* Vibrant Crimson */
+    --success-color: #2ECC71;          /* Radiant Green */
+    --warning-color: #FFB74D;          /* Soft Sunset Orange */
+}
 
-  /* Dark theme */
-  .dark-theme {
-    --primary-color: #3a86ff;          /* Same soft blue for continuity */
-    --primary-light-color: #6ea8fe;    /* Lighter version */
-    --primary-dark-color: #265df2;     /* Darker version */
-    --secondary-color: #a8b0b9;        /* Soft gray-blue */
-    --text-color: #e0e0e0;             /* Light text */
-    --heading-color: #ffffff;          /* Brighter text for headings */
-    --background-color: #1a1a1a;       /* Near-black but soft */
-    --card-background: #212121;        /* Dark gray */
-    --border-color: #333333;           /* Darker border */
-    --light-gray: #2b2b2b;             /* Dark gray */
-    --medium-gray: #444444;            /* Medium dark gray */
-    --dark-gray: #666666;              /* Lighter dark gray */
-    --danger-color: #e639478e;           /* Same soft red */
-    --success-color: #52b788;          /* Same soft green */
-    --warning-color: #ffbe0b;          /* Same soft amber */
-  }
   
 
   body {
