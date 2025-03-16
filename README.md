@@ -38,7 +38,8 @@ user-management-dashboard/
 │   │   ├── middleware/             # Authentication & Authorization guards
 │   │   ├── pages/                  # Nuxt pages (auto-routed)
 │   │   │   ├── index.vue           # Dashboard Home
-│   │   │   ├── users/              # Users module
+│   │   │   ├── users/               # Users module
+            |   |__new.vue              #create new create
 │   │   │   │   ├── index.vue       # Users list
 │   │   │   │   ├── [id].vue        # User details/edit page
 │   │   ├── plugins/                # Global plugins
