@@ -50,9 +50,6 @@ defineEmits<{
 </script>
 
 <style scoped>
-button:hover {
-  background-color: var(--dark-gray) !important;
-}
 
 .user-actions {
   display: flex;
@@ -74,18 +71,6 @@ button:hover {
 }
 
 .action-button:hover {
-  background-color: var(--light-gray);
-}
-
-.action-button.view:hover {
-  color: var(--primary-color);
-}
-
-.action-button.edit:hover {
-  color: var(--warning-color);
-}
-
-.action-button.delete:hover {
-  color: var(--danger-color);
+  @apply  bg-[#2A9D8F] bg-opacity-20
 }
 </style>

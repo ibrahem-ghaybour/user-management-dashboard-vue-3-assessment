@@ -1,7 +1,7 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto ">
     <h2>{{ $t("dashboard.title") }}</h2>
-    <div v-if="isLoading" class="loading-indicator">
+    <div v-if="isLoading" class="loading-indicator ">
       <UiLoading />
     </div>
     <div v-else-if="error" class="error-message">
@@ -43,6 +43,7 @@ onMounted(() => {
 <style scoped>
 .dashboard-summary {
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
   margin: 2rem 0;
