@@ -6,6 +6,7 @@
   },
   "common": {
     "loading": "Loading...",
+    "logout": "Logout",
     "error": "An error occurred",
     "retry": "Retry",
     "save": "Save",
@@ -48,6 +49,15 @@
     "redo": "Redo"
   },
   "auth": {
+    "demoUsersDescription": "demoUsersDescription",
+    "loginAsAdmin": "loginAsAdmin",
+    "loginAsUser": "loginAsAdmin",
+    "demoUsers": "demoUsers",
+    "loginAsManager": "loginAsManager",
+    "loginAsGuest": "loginAsGuest",
+    "passwordPlaceholder": "passwordPlaceholder",
+    "emailPlaceholder": "emailPlaceholder",
+    "loginSubtitle": "loginSubtitle",
     "login": "Login",
     "logout": "Logout",
     "email": "Email",
@@ -68,6 +78,8 @@
     "title": "Users",
     "user": "User",
     "users": "Users",
+    "newUser": "New User",
+    "viewUser": "View User",
     "userDetails": "User Details",
     "createUser": "Create User",
     "editUser": "Edit User",
@@ -101,6 +113,8 @@
     "importUsers": "Import Users",
     "userStatistics": "User Statistics",
     "totalUsers": "Total Users",
+    "adminUsers": "Admin Users",
+    "managerUsers": "Manager Users",
     "activeUsers": "Active Users",
     "inactiveUsers": "Inactive Users",
     "pendingUsers": "Pending Users",
@@ -108,7 +122,11 @@
     "usersByDepartment": "Users by Department",
     "usersByLocation": "Users by Location",
     "newUsersThisMonth": "New Users This Month",
-    "userActivity": "User Activity"
+    "userActivity": "User Activity",
+    "manageUsers": "Manage Users",
+    "active": "active",
+    "inactive" :"inactive",
+    "pending": "pending"
   },
   "roles": {
     "title": "Roles",
@@ -203,6 +221,9 @@
     "downloadReady": "Your download is ready"
   },
   "audit": {
+    "loginAsAdmin": "loginAsAdmin",
+    "loginAsManager": "loginAsManager",
+    "loginAsUser": "loginAsUser",
     "title": "Audit Log",
     "action": "Action",
     "user": "User",
@@ -230,5 +251,10 @@
     "keyboardShortcuts": "Keyboard Shortcuts",
     "skipToContent": "Skip to Content",
     "accessibilitySettings": "Accessibility Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard Home",
+    "footer": "© {year} User Management Dashboard",
+    "skipToContent": "Skip to Content"
   }
-} 
+}

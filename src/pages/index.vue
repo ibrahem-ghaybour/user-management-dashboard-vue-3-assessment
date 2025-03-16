@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <h2>Dashboard Home</h2>
+    <h2>{{ $t("dashboard.title") }}</h2>
     <div v-if="isLoading" class="loading-indicator">
       <UiLoading />
     </div>
@@ -10,20 +10,20 @@
     </div>
     <div v-else class="dashboard-summary">
       <div class="summary-card">
-        <h3>Total Users</h3>
+        <h3>{{ $t("users.totalUsers") }}</h3>
         <p class="summary-number">{{ stats.totalUsers }}</p>
       </div>
       <div class="summary-card">
-        <h3>Active Users</h3>
+        <h3>{{ $t("users.activeUsers") }}</h3>
         <p class="summary-number">{{ stats.activeUsers }}</p>
       </div>
       <div class="summary-card">
-        <h3>Admin Users</h3>
+        <h3>{{ $t("users.adminUsers") }}</h3>
         <p class="summary-number">{{ stats.adminUsers }}</p>
       </div>
     </div>
     <div class="dashboard-actions">
-      <NuxtLink to="/users" class="btn btn-primary">Manage Users</NuxtLink>
+      <NuxtLink to="/users" class="btn btn-primary">{{ $t("users.manageUsers") }}</NuxtLink>
     </div>
   </div>
 </template>

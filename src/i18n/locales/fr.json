@@ -6,6 +6,7 @@
   },
   "common": {
     "loading": "Chargement...",
+    "logout": "Se déconnecter",
     "error": "Une erreur est survenue",
     "retry": "Réessayer",
     "save": "Enregistrer",
@@ -48,6 +49,15 @@
     "redo": "Rétablir"
   },
   "auth": {
+    "demoUsersDescription": "Description démo",
+    "loginAsAdmin": "Admin",
+    "loginAsUser": "Utilisateur",
+    "demoUsers": "Utilisateurs démo",
+    "loginAsManager": "Gestionnaire",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "emailPlaceholder": "Entrez votre adresse e-mail",
+    "loginAsGuest": "Invité",
+    "loginSubtitle": "Sous-titre connexion",
     "login": "Connexion",
     "logout": "Déconnexion",
     "email": "Email",
@@ -68,6 +78,8 @@
     "title": "Utilisateurs",
     "user": "Utilisateur",
     "users": "Utilisateurs",
+    "newUser": "Nouvel utilisateur",
+    "viewUser": "Voir l'utilisateur",
     "userDetails": "Détails de l'utilisateur",
     "createUser": "Créer un utilisateur",
     "editUser": "Modifier l'utilisateur",
@@ -106,9 +118,14 @@
     "pendingUsers": "Utilisateurs en attente",
     "usersByRole": "Utilisateurs par rôle",
     "usersByDepartment": "Utilisateurs par département",
+    "adminUsers": "Utilisateurs administrateurs",
     "usersByLocation": "Utilisateurs par emplacement",
     "newUsersThisMonth": "Nouveaux utilisateurs ce mois-ci",
-    "userActivity": "Activité des utilisateurs"
+    "userActivity": "Activité des utilisateurs",
+    "manageUsers": "Gérer les utilisateurs",
+    "active": "actif",
+    "inactive": "inactif",
+    "pending": "en attente"
   },
   "roles": {
     "title": "Rôles",
@@ -230,5 +247,11 @@
     "keyboardShortcuts": "Raccourcis clavier",
     "skipToContent": "Passer au contenu",
     "accessibilitySettings": "Paramètres d'accessibilité"
+  },
+  "dashboard": {
+    "title": "Accueil",
+    "Active Users": "Utilisateurs actifs",
+    "Inactive Users": "Utilisateurs inactifs",
+    "Pending Users": "Utilisateurs en attente"
   }
-} 
+}

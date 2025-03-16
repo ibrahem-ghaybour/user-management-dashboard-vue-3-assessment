@@ -6,6 +6,7 @@
   },
   "common": {
     "loading": "Cargando...",
+    "logout": "Disconnettersi",
     "error": "Ha ocurrido un error",
     "retry": "Reintentar",
     "save": "Guardar",
@@ -48,6 +49,15 @@
     "redo": "Rehacer"
   },
   "auth": {
+    "demoUsersDescription": "Descripción demo",
+    "loginAsAdmin": "Admin",
+    "loginAsUser": "Usuario",
+    "demoUsers": "Usuarios demo",
+    "loginAsManager": "Gerente",
+    "loginAsGuest": "Invitado",
+    "passwordPlaceholder": "Inserisci la tua password",
+    "emailPlaceholder": "Inserisci la tua email",
+    "loginSubtitle": "Sottotitolo accesso",
     "login": "Iniciar sesión",
     "logout": "Cerrar sesión",
     "email": "Correo electrónico",
@@ -68,6 +78,8 @@
     "title": "Usuarios",
     "user": "Usuario",
     "users": "Usuarios",
+    "newUser": "Nuevo usuario",
+    "viewUser": "Ver usuario",
     "userDetails": "Detalles del usuario",
     "createUser": "Crear usuario",
     "editUser": "Editar usuario",
@@ -107,8 +119,13 @@
     "usersByRole": "Usuarios por rol",
     "usersByDepartment": "Usuarios por departamento",
     "usersByLocation": "Usuarios por ubicación",
+    "adminUsers": "Utenti amministratori",
     "newUsersThisMonth": "Nuevos usuarios este mes",
-    "userActivity": "Actividad de usuarios"
+    "userActivity": "Actividad de usuarios",
+    "manageUsers": "Gestire gli utenti",
+    "active": "activo",
+    "inactive": "inactivo",
+    "pending": "pendiente"
   },
   "roles": {
     "title": "Roles",
@@ -230,5 +247,8 @@
     "keyboardShortcuts": "Atajos de teclado",
     "skipToContent": "Saltar al contenido",
     "accessibilitySettings": "Configuración de accesibilidad"
+  },
+  "dashboard": {
+    "title": "Inicio"
   }
-} 
+}
