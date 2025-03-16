@@ -4,7 +4,7 @@
     @input="$emit('update:modelValue', ($event.target as HTMLSelectElement).value)"
     class="role-selector"
   >
-    <option value="" disabled>{{ t('users.selectRole') }}</option>
+    <option value="" disabled>{{ $t('users.selectRole') }}</option>
     <option 
       v-for="role in roles" 
       :key="role.id" 
@@ -16,10 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { useRolesStore } from '~/store/roles';
-import { useI18n } from 'vue-i18n';
-
 // Props
 const props = defineProps<{
   modelValue: string;
@@ -32,8 +29,6 @@ defineEmits<{
 
 // Stores and composables
 const rolesStore = useRolesStore();
-const { t } = useI18n();
-
 // Computed
 const roles = computed(() => {
   return rolesStore.roles;
