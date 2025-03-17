@@ -145,7 +145,7 @@ async function confirmDelete() {
     error.value = null;
     showPopup.value = false;
     try {
-      if (currentUser.role !== "admin") {
+      if (currentUser.role !== "admin" || user.value.role === "admin") {
         throw new Error($i18n.t("users.errorDeletingAdmin"));
       }
       await usersStore.deleteUser(userId.value);
