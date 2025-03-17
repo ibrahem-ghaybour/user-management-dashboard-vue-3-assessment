@@ -24,7 +24,6 @@ export const vRole: ObjectDirective<HTMLElement, string | string[]> = {
 };
 
 function updateElement(el: HTMLElement, binding: any) {
-  console.log("updateElement", binding.value, binding,el);
   const authStore = useAuthStore();
   const permissions = binding.value;
   const mode = binding.arg || "remove"; // Default mode is 'remove'

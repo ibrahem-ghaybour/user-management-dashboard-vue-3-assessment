@@ -48,6 +48,7 @@
 <script setup lang="ts">
 import { useUsersStore } from "~/store/users";
 import { useRolesStore } from "~/store/roles";
+import { useAuthStore } from "~/store/auth";
 import UserDetail from "~/components/users/UserDetail.vue";
 import UserForm from "~/components/users/UserForm.vue";
 import type { User, UpdateUserRequest } from "~/types/user";
@@ -58,6 +59,7 @@ const route = useRoute();
 const router = useRouter();
 const usersStore = useUsersStore();
 const rolesStore = useRolesStore();
+const { currentUser } = useAuthStore();
 const { $i18n } = useNuxtApp();
 
 const showPopup = ref(false);
@@ -141,9 +143,9 @@ async function confirmDelete() {
   if (user.value) {
     isLoading.value = true;
     error.value = null;
-    console.log(user.value.role);
+    showPopup.value = false;
     try {
-      if (user.value.role !== "admin") {
+      if (currentUser.role !== "admin") {
         throw new Error($i18n.t("users.errorDeletingAdmin"));
       }
       await usersStore.deleteUser(userId.value);
