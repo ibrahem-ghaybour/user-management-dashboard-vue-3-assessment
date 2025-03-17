@@ -13,7 +13,10 @@
         </button>
       </div>
 
-      <div v-if="usersStore.error" class="bg-red-500 text-white p-3 rounded mb-4">
+      <div
+        v-if="usersStore.error"
+        class="bg-red-500 text-white p-3 rounded mb-4"
+      >
         {{ usersStore.error }}
       </div>
 
@@ -22,7 +25,10 @@
         <FilterControls @filter="handleFilter" />
       </div>
 
-      <div v-if="usersStore.isLoading" class="flex items-center justify-center h-[80vh]">
+      <div
+        v-if="usersStore.isLoading"
+        class="flex items-center justify-center h-[80vh]"
+      >
         <UiLoading />
       </div>
       <div v-else>

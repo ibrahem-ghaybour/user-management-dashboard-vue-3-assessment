@@ -1,9 +1,9 @@
 <template>
-  <div class="user-actions flex justify-center gap-2">
+  <div class="user-actions flex gap-2">
     <button
       class="action-button view"
       @click="$emit('view', user)"
-      :title="t('common.view')"
+      :title="$t('common.view')"
       v-role="'settings:read'"
     >
       <img src="~/assets/icons/eye.svg" alt="" />
@@ -12,8 +12,8 @@
     <button
       class="action-button edit"
       @click="$emit('edit', user)"
-      :title="t('common.edit')"
-      v-role="'users:write'"
+      :title="$t('common.edit')"
+      v-role="getDeletionPermissions(user.role, 'users:write')"
     >
       <img src="~/assets/icons/edit.svg" alt="" />
     </button>
@@ -21,8 +21,8 @@
     <button
       class="action-button delete"
       @click="$emit('delete', user)"
-      :title="t('common.delete')"
-      v-role="'users:delete'"
+      :title="$t('common.delete')"
+      v-role="getDeletionPermissions(user.role, 'users:delete')"
     >
       <img src="~/assets/icons/delete.svg" alt="" />
     </button>
@@ -30,12 +30,10 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
 import type { User } from "~/types/user";
-
+import { usePermissions } from "~/composables/usePermission";
 // i18n
-const { t } = useI18n();
-
+const { getDeletionPermissions } = usePermissions();
 // Props
 defineProps<{
   user: User;
@@ -65,6 +63,6 @@ defineEmits<{
 }
 
 .action-button:hover {
-  @apply  bg-[#2A9D8F] bg-opacity-20
+  @apply bg-[#2A9D8F] bg-opacity-20;
 }
 </style>

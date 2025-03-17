@@ -9,7 +9,7 @@
         <button
           class="btn btn-danger"
           @click="showPopup = true"
-          v-role:disable="'users:delete'"
+          v-role:disable="getDeletionPermissions(user.role, 'users:delete')"
         >
           {{ $t("common.delete") }}
         </button>
@@ -49,6 +49,7 @@
 import { useUsersStore } from "~/store/users";
 import { useRolesStore } from "~/store/roles";
 import { useAuthStore } from "~/store/auth";
+import { usePermissions } from "~/composables/usePermission";
 import UserDetail from "~/components/users/UserDetail.vue";
 import UserForm from "~/components/users/UserForm.vue";
 import type { User, UpdateUserRequest } from "~/types/user";
@@ -59,6 +60,7 @@ const route = useRoute();
 const router = useRouter();
 const usersStore = useUsersStore();
 const rolesStore = useRolesStore();
+const { getDeletionPermissions } = usePermissions();
 const { currentUser } = useAuthStore();
 const { $i18n } = useNuxtApp();
 

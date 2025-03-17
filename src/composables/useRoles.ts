@@ -1,7 +1,7 @@
-import { ref } from 'vue';
-import type { Ref } from 'vue';
-import { useNuxtApp } from '#app';
-import type { Role } from '~/types/user';
+import { ref } from "vue";
+import type { Ref } from "vue";
+import { useNuxtApp } from "#app";
+import type { Role } from "~/types/user";
 
 export function useRoles() {
   const { $api } = useNuxtApp();
@@ -15,10 +15,10 @@ export function useRoles() {
     error.value = null;
 
     try {
-      roles.value = await $api.get<Role[]>('roles');
+      roles.value = await $api.get<Role[]>("roles");
     } catch (err: any) {
-      error.value = err.message || 'Failed to fetch roles';
-      console.error('Error fetching roles:', err);
+      error.value = err.message || "Failed to fetch roles";
+      console.error("Error fetching roles:", err);
     } finally {
       isLoading.value = false;
     }
@@ -26,13 +26,15 @@ export function useRoles() {
 
   // Get role name by ID
   function getRoleName(roleId: string): string {
-    const role = roles.value.find(r => r.id === roleId);
+    const role = roles.value.find((r) => r.id === roleId);
     return role ? role.name : roleId;
   }
 
   // Check if a role has a specific permission
   function hasPermission(roleId: string, permission: string): boolean {
-    const role = roles.value.find(r => r.id === roleId);
+    console.log(roles.value, "roles");
+
+    const role = roles.value.find((r) => r.id === roleId);
     return role ? role.permissions.includes(permission) : false;
   }
 
@@ -42,6 +44,6 @@ export function useRoles() {
     error,
     fetchRoles,
     getRoleName,
-    hasPermission
+    hasPermission,
   };
-} 
+}

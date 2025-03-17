@@ -2,60 +2,61 @@
   <div class="user-detail">
     <div class="card">
       <div class="card-header">
-        <h3>{{ $t('users.title') }}</h3>
-        <button 
-          class="btn btn-primary" 
+        <h3>{{ $t("users.title") }}</h3>
+        {{ getDeletionPermissions(user.role, 'users:write') }}
+        <button
+          class="btn btn-primary"
           @click="$emit('edit')"
-          v-role="'users:write'"
+          v-role="getDeletionPermissions(user.role, 'users:write')"
         >
-          {{ $t('common.edit') }}
+          {{ $t("common.edit") }}
         </button>
       </div>
-      
+
       <div class="card-body">
         <div class="user-info">
           <div class="info-group">
-            <h4>{{ $t('users.name') }}</h4>
+            <h4>{{ $t("users.name") }}</h4>
             <p>{{ `${user.firstName} ${user.lastName}` }}</p>
           </div>
-          
+
           <div class="info-group">
-            <h4>{{ $t('users.email') }}</h4>
+            <h4>{{ $t("users.email") }}</h4>
             <p>{{ user.email }}</p>
           </div>
-          
+
           <div class="info-group">
-            <h4>{{ $t('users.role') }}</h4>
+            <h4>{{ $t("users.role") }}</h4>
             <p>{{ getRoleName(user.role) }}</p>
           </div>
-          
+
           <div class="info-group">
-            <h4>{{ $t('users.status') }}</h4>
+            <h4>{{ $t("users.status") }}</h4>
             <p>
               <span :class="['status-badge', `status-${user.status}`]">
                 {{ $t(`users.${user.status}`) }}
               </span>
             </p>
           </div>
-          
+
           <div class="info-group">
-            <h4>{{ $t('users.department') }}</h4>
-            <p>{{ user.department || '-' }}</p>
+            <h4>{{ $t("users.department") }}</h4>
+            <p>{{ user.department || "-" }}</p>
           </div>
-          
+
           <div class="info-group">
-            <h4>{{ $t('users.location') }}</h4>
-            <p>{{ user.location || '-' }}</p>
+            <h4>{{ $t("users.location") }}</h4>
+            <p>{{ user.location || "-" }}</p>
           </div>
-          
+
           <div class="info-group">
-            <h4>{{ $t('users.createdAt') }}</h4>
+            <h4>{{ $t("users.createdAt") }}</h4>
             <p>{{ formatDate(user.createdAt) }}</p>
           </div>
-          
+
           <div class="info-group">
-            <h4>{{ $t('users.lastLogin') }}</h4>
-            <p>{{ user.lastLogin ? formatDate(user.lastLogin) : '-' }}</p>
+            <h4>{{ $t("users.lastLogin") }}</h4>
+            <p>{{ user.lastLogin ? formatDate(user.lastLogin) : "-" }}</p>
           </div>
         </div>
       </div>
@@ -64,9 +65,11 @@
 </template>
 
 <script setup lang="ts">
-import { useRolesStore } from '~/store/roles';
-import { useLocalization } from '~/composables/useLocalization';
-import type { User } from '~/types/user';
+// import {ha}
+import { useRolesStore } from "~/store/roles";
+import { useLocalization } from "~/composables/useLocalization";
+import { usePermissions } from "~/composables/usePermission";
+import type { User } from "~/types/user";
 
 // Props
 defineProps<{
@@ -75,13 +78,13 @@ defineProps<{
 
 // Emits
 defineEmits<{
-  (e: 'edit'): void;
+  (e: "edit"): void;
 }>();
 
 // Stores and composables
 const rolesStore = useRolesStore();
 const { formatDate } = useLocalization();
-
+const { getDeletionPermissions } = usePermissions();
 // Get role name from role ID
 function getRoleName(roleId: string): string {
   return rolesStore.getRoleName(roleId);
