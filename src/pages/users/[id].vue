@@ -51,7 +51,9 @@ import { useRolesStore } from "~/store/roles";
 import UserDetail from "~/components/users/UserDetail.vue";
 import UserForm from "~/components/users/UserForm.vue";
 import type { User, UpdateUserRequest } from "~/types/user";
-
+definePageMeta({
+  requiredPermissions: ["settings:read"],
+});
 const route = useRoute();
 const router = useRouter();
 const usersStore = useUsersStore();
@@ -139,7 +141,7 @@ async function confirmDelete() {
   if (user.value) {
     isLoading.value = true;
     error.value = null;
-    console.log(user.value.role)
+    console.log(user.value.role);
     try {
       if (user.value.role !== "admin") {
         throw new Error($i18n.t("users.errorDeletingAdmin"));
