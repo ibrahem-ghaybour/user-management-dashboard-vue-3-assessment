@@ -3,7 +3,6 @@
     <div class="card">
       <div class="card-header">
         <h3>{{ $t("users.title") }}</h3>
-        {{ getDeletionPermissions(user.role, 'users:write') }}
         <button
           class="btn btn-primary"
           @click="$emit('edit')"
