@@ -2,7 +2,8 @@
   "app": {
     "title": "User Management Dashboard",
     "footer": "© {year} User Management Dashboard",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "PulseBoard": "PulseBoard"
   },
   "common": {
     "loading": "Loading...",
@@ -10,6 +11,8 @@
     "error": "An error occurred",
     "retry": "Retry",
     "save": "Save",
+    "noData": "No data",
+    "view": "View",
     "cancel": "Cancel",
     "delete": "Delete",
     "edit": "Edit",

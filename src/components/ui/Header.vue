@@ -8,7 +8,7 @@
       >
         <!-- Logo / Title -->
         <h1 class="text-lg md:text-2xl font-semibold text-text-heading m-0">
-          {{ $t("PulseBoard") }}
+          PulseBoard
         </h1>
 
         <!-- Right Side Actions -->

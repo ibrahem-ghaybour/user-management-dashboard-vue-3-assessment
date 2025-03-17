@@ -2,7 +2,9 @@
   "app": {
     "title": "Tableau de Bord de Gestion des Utilisateurs",
     "footer": "© {year} Tableau de Bord de Gestion des Utilisateurs",
-    "skipToContent": "Passer au contenu"
+    "skipToContent": "Passer au contenu",
+    "PulseBoard": "PulseBoard"
+    
   },
   "common": {
     "loading": "Chargement...",
@@ -14,6 +16,8 @@
     "delete": "Supprimer",
     "edit": "Modifier",
     "create": "Créer",
+    "view": "Voir",
+    "noData": "Aucune données",
     "search": "Rechercher",
     "filter": "Filtrer",
     "sort": "Trier",

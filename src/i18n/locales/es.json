@@ -2,7 +2,8 @@
   "app": {
     "title": "Panel de Gestión de Usuarios",
     "footer": "© {year} Panel de Gestión de Usuarios",
-    "skipToContent": "Saltar al contenido"
+    "skipToContent": "Saltar al contenido",
+    "PulseBoard": "PulseBoard"
   },
   "common": {
     "loading": "Cargando...",
@@ -12,6 +13,8 @@
     "save": "Guardar",
     "cancel": "Cancelar",
     "delete": "Eliminar",
+    "view": "Ver",
+    "noData": "Sin datos",
     "edit": "Editar",
     "create": "Crear",
     "search": "Buscar",
