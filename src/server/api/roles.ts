@@ -1,5 +1,5 @@
-import { defineEventHandler, createError } from 'h3';
-import { mockApi } from './mock/mockApi';
+import { defineEventHandler, createError } from "h3";
+import { mockApi } from "./mock/mockApi";
 
 export default defineEventHandler(async (event) => {
   try {
@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   } catch (error: any) {
     throw createError({
       statusCode: 500,
-      statusMessage: error.message || 'Failed to fetch roles'
+      statusMessage: error.message || "Failed to fetch roles",
     });
   }
-}); 
+});

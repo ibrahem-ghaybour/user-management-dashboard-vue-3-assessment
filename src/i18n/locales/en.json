@@ -52,7 +52,7 @@
   "auth": {
     "demoUsersDescription": "demoUsersDescription",
     "loginAsAdmin": "loginAsAdmin",
-    "loginAsUser": "loginAsAdmin",
+    "loginAsUser": "loginAsUser",
     "demoUsers": "demoUsers",
     "loginAsManager": "loginAsManager",
     "loginAsGuest": "loginAsGuest",
