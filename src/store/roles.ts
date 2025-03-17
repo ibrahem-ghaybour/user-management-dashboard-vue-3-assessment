@@ -1,59 +1,50 @@
-import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
-import type { Ref } from 'vue';
-import type { Role } from '~/types/role';
+import { defineStore } from "pinia";
+import { ref, computed } from "vue";
+import type { Ref } from "vue";
+import type { Role } from "~/types/role";
 
 // Predefined roles with permissions for demo purposes
 const DEMO_ROLES: Role[] = [
   {
-    id: 'admin',
-    name: 'Administrator',
-    description: 'Full access to all features',
+    id: "admin",
+    name: "Administrator",
+    description: "Full access to all features",
     permissions: [
-      'users:read',
-      'users:write',
-      'users:delete',
-      'roles:read',
-      'roles:write',
-      'roles:delete',
-      'settings:read',
-      'settings:write'
+      "users:read",
+      "users:write",
+      "users:delete",
+      "roles:read",
+      "roles:write",
+      "roles:delete",
+      "settings:read",
+      "settings:write",
     ],
-    createdAt: '2023-01-01T00:00:00Z'
+    createdAt: "2023-01-01T00:00:00Z",
   },
   {
-    id: 'manager',
-    name: 'Manager',
-    description: 'Can manage users but not roles',
-    permissions: [
-      'users:read',
-      'users:write',
-      'settings:read'
-    ],
-    createdAt: '2023-01-01T00:00:00Z'
+    id: "manager",
+    name: "Manager",
+    description: "Can manage users but not roles",
+    permissions: ["users:read", "users:write", "settings:read"],
+    createdAt: "2023-01-01T00:00:00Z",
   },
   {
-    id: 'user',
-    name: 'Regular User',
-    description: 'Basic access to the system',
-    permissions: [
-      'users:read',
-      'settings:read'
-    ],
-    createdAt: '2023-01-01T00:00:00Z'
+    id: "user",
+    name: "Regular User",
+    description: "Basic access to the system",
+    permissions: ["users:read", "settings:read"],
+    createdAt: "2023-01-01T00:00:00Z",
   },
   {
-    id: 'guest',
-    name: 'Guest',
-    description: 'Limited read-only access',
-    permissions: [
-      'users:read'
-    ],
-    createdAt: '2023-01-01T00:00:00Z'
-  }
+    id: "guest",
+    name: "Guest",
+    description: "Limited read-only access",
+    permissions: ["users:read"],
+    createdAt: "2023-01-01T00:00:00Z",
+  },
 ];
 
-export const useRolesStore = defineStore('roles', () => {
+export const useRolesStore = defineStore("roles", () => {
   // State
   const roles: Ref<Role[]> = ref([...DEMO_ROLES]);
   const isLoading = ref(false);
@@ -63,7 +54,7 @@ export const useRolesStore = defineStore('roles', () => {
   // Computed properties
   const roleMap = computed(() => {
     const map = new Map<string, Role>();
-    roles.value.forEach(role => {
+    roles.value.forEach((role) => {
       map.set(role.id, role);
     });
     return map;
@@ -80,8 +71,8 @@ export const useRolesStore = defineStore('roles', () => {
       roles.value = [...DEMO_ROLES];
       return roles.value;
     } catch (err: any) {
-      error.value = err.message || 'Failed to fetch roles';
-      console.error('Error fetching roles:', err);
+      error.value = err.message || "Failed to fetch roles";
+      console.error("Error fetching roles:", err);
       throw err;
     } finally {
       isLoading.value = false;
@@ -117,15 +108,15 @@ export const useRolesStore = defineStore('roles', () => {
     isLoading,
     error,
     currentUserRole,
-    
+
     // Computed
     roleMap,
-    
+
     // Actions
     fetchRoles,
     getRoleName,
     hasPermission,
     currentUserHasPermission,
-    setCurrentUserRole
+    setCurrentUserRole,
   };
-}); 
+});

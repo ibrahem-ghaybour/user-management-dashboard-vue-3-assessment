@@ -4,7 +4,7 @@
       class="action-button view"
       @click="$emit('view', user)"
       :title="t('common.view')"
-      v-role="'users:read'"
+      v-role="'settings:read'"
     >
       <img src="~/assets/icons/eye.svg" alt="" />
     </button>
