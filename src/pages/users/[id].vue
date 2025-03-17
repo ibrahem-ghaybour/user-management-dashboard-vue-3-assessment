@@ -139,8 +139,9 @@ async function confirmDelete() {
   if (user.value) {
     isLoading.value = true;
     error.value = null;
+    console.log(user.value.role)
     try {
-      if (user.value.role === "admin") {
+      if (user.value.role !== "admin") {
         throw new Error($i18n.t("users.errorDeletingAdmin"));
       }
       await usersStore.deleteUser(userId.value);
