@@ -10,7 +10,7 @@ export function usePermissions() {
     targetUser: Permission,
     defaultPermissions: Permission[] | Permission
   ): Permission[] {
-    if (currentUser.role === ADMIN_ROLE && targetUser === ADMIN_ROLE) {
+    if (targetUser === ADMIN_ROLE || currentUser.role === targetUser) {
       return [""];
     }
     return Array.isArray(defaultPermissions)

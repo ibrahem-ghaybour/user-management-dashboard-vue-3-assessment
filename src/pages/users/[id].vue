@@ -28,6 +28,7 @@
       <UserDetail v-if="!isEditing" :user="user" @edit="startEditing" />
       <UserForm
         v-else
+        v-role="getDeletionPermissions(user.role, 'users:write')"
         :user="user"
         :is-new="false"
         @save="saveUser"
