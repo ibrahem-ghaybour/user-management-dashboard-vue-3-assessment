@@ -1,5 +1,5 @@
 <template>
-  <div class="user-actions">
+  <div class="user-actions flex justify-center gap-2">
     <button
       class="action-button view"
       @click="$emit('view', user)"
@@ -50,12 +50,6 @@ defineEmits<{
 </script>
 
 <style scoped>
-
-.user-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
 .action-button {
   display: flex;
   align-items: center;
