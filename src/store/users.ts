@@ -56,7 +56,6 @@ export const useUsersStore = defineStore("users", () => {
       if (sortBy.value) queryParams.sortBy = sortBy.value;
       if (sortDirection.value) queryParams.sortDirection = sortDirection.value;
 
-      console.log("queryParams:", queryParams);
       // Use $fetch for SSR compatibility
       const result = await $fetch<PaginatedResponse<User>>("/api/users", {
         method: "GET",

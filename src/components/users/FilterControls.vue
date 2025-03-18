@@ -1,5 +1,5 @@
 <template>
-  <div class="filter-controls">
+  <div class="filter-controls max-lg:w-full">
     <button 
       class="filter-toggle" 
       @click="isExpanded = !isExpanded"
@@ -136,6 +136,7 @@ function resetFilters() {
 .filter-controls {
   position: relative;
   min-width: 150px;
+  z-index: 20;
 }
 
 .filter-toggle {

@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import type { User } from "~/types/user";
-import { usePermissions } from "~/composables/usePermission";
+// import { usePermissions } from "~/composables/usePermission";
 // i18n
 const { getDeletionPermissions } = usePermissions();
 // Props

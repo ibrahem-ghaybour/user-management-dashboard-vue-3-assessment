@@ -6,7 +6,7 @@ import type {
   UserFilters,
   SortDirection,
 } from "../../../types/user";
-
+import { formatFullName } from "../../../utils/formatters";
 // Configuration for the mock API
 const config = {
   // Latency range in milliseconds
@@ -184,7 +184,10 @@ const filterUsers = (users: User[], filters?: UserFilters): User[] => {
     // Filter by search term (name or email)
     if (filters.search) {
       const searchTerm = filters.search.toLowerCase();
-      const fullName = `${user.firstName} ${user.lastName}`.toLowerCase();
+      const fullName = formatFullName(
+        user.firstName,
+        user.lastName
+      ).toLowerCase();
       if (
         !fullName.includes(searchTerm) &&
         !user.email.toLowerCase().includes(searchTerm)
