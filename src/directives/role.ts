@@ -1,19 +1,6 @@
 import type { ObjectDirective } from "vue";
 import { useAuthStore } from "~/store/auth";
 
-/**
- * Custom directive for role-based permissions
- *
- * Usage:
- * v-role="'users:write'"                  - Element is shown only if user has the permission
- * v-role:disable="'users:write'"          - Element is disabled if user doesn't have the permission
- * v-role:hide="'users:write'"             - Element is hidden (display: none) if user doesn't have the permission
- * v-role="['users:write', 'users:read']"  - Element is shown only if user has ALL permissions
- * v-role.any="['users:write', 'users:read']" - Element is shown if user has ANY of the permissions
- *
- * @example <button v-role="'users:write'">Add User</button>
- * @example <button v-role:disable="'users:delete'">Delete User</button>
- */
 export const vRole: ObjectDirective<HTMLElement, string | string[]> = {
   mounted(el, binding) {
     updateElement(el, binding);

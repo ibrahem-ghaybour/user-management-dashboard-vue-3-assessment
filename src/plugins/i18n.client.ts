@@ -2,7 +2,7 @@ import { defineNuxtPlugin } from '#app'
 import { watch } from 'vue'
 import { useLocalizationStore } from '~/store/localization'
 import type { SupportedLocale } from '~/store/localization'
-import type { I18n, Composer } from 'vue-i18n'
+import type { Composer } from 'vue-i18n'
 
 /**
  * Plugin to handle client-side i18n functionality

@@ -116,10 +116,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useAuthStore } from "~/store/auth";
-import { useI18n } from "vue-i18n";
 
 const router = useRouter();
 const route = useRoute();
@@ -134,7 +132,6 @@ const isLoading = ref(false);
 const rememberMe = ref(false);
 const sessionExpired = ref(false);
 const redirectPath = ref("/");
-
 // Check for query parameters on mount
 onMounted(() => {
   // Check if session expired

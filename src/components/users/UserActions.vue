@@ -38,13 +38,6 @@ const { getDeletionPermissions } = usePermissions();
 defineProps<{
   user: User;
 }>();
-
-// Emits
-defineEmits<{
-  (e: "view", user: User): void;
-  (e: "edit", user: User): void;
-  (e: "delete", user: User): void;
-}>();
 </script>
 
 <style scoped>

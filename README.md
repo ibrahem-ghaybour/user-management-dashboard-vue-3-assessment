@@ -90,8 +90,6 @@ The mock API is accessed through server API routes. You can interact with it usi
 
 ```typescript
 // Using composables
-import { useFetchUsers } from '~/composables/useFetchUsers';
-import { useUser } from '~/composables/useUser';
 import { useRoles } from '~/composables/useRoles';
 
 // Using Pinia stores
@@ -125,10 +123,8 @@ You can test error handling by simulating API failures using the provided plugin
 
 ```typescript
 // In a component or page
-const { $mockApi } = useNuxtApp();
 
 // Simulate a failure with 100% probability
-$mockApi.simulateFailure(1);
 
 // The failure probability will reset to the default after 5 seconds
 ```

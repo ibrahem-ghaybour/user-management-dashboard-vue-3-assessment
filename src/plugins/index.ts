@@ -9,7 +9,6 @@
 
 // API plugins
 export { default as apiPlugin } from './api';
-export { default as mockApiPlugin } from './mockApi';
 
 // i18n plugins
 export { default as i18nPlugin } from './i18n';

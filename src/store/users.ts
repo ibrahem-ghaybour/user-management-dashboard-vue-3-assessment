@@ -136,6 +136,29 @@ export const useUsersStore = defineStore("users", () => {
 
     try {
       // Optimistic update
+
+
+
+      // @Here is a problem that can be solved like this:=>
+
+
+      // async function updateUser(id: string, userData: UpdateUserRequest) {
+      //   isLoading.value = true;
+      //   error.value = null;
+
+      //   // Find the user index and store a copy of the original user for a potential rollback.
+      //   const userIndex = users.value.findIndex((u) => u.id === id);
+      //   let originalUser: User | null = null;
+
+      //   if (userIndex !== -1) {
+      //     originalUser = { ...users.value[userIndex] };
+      //     const optimisticUser = { ...originalUser, ...userData };
+      //     users.value[userIndex] = optimisticUser as User;
+
+      //     if (currentUser.value?.id === id) {
+      //       currentUser.value = optimisticUser as User;
+      //     }
+      //   }
       const userIndex = users.value.findIndex((u) => u.id === id);
       if (userIndex !== -1) {
         const updatedUser = { ...users.value[userIndex], ...userData };

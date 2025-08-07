@@ -1,15 +1,13 @@
 import { useAuthStore } from "~/store/auth";
 
-type Permission = string;
-
 export function usePermissions() {
   const { currentUser } = useAuthStore();
   const ADMIN_ROLE = "admin";
 
   function getDeletionPermissions(
-    targetUser: Permission,
-    defaultPermissions: Permission[] | Permission
-  ): Permission[] {
+    targetUser: string,
+    defaultPermissions: string[] | string
+  ): string[] {
     if (targetUser === ADMIN_ROLE || currentUser.role === targetUser) {
       return [""];
     }
